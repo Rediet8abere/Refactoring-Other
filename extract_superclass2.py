@@ -18,15 +18,13 @@ class Circle:
         return self.center_x, self.center_y
 
 
-class Rectangle:
+class Rectangle(Circle):
 
     def __init__(self, x, y, width, height, visible = True):
         # left-bottom corner.
-        self.x = x
-        self.y = y
+        super().__init__(x, y, width, visible = True)
         self.width = width
         self.height = height
-        self.visible = visible
 
     def display(self):
         if self.visible:
@@ -39,8 +37,8 @@ class Rectangle:
         self.visible = True
 
     def get_center(self):
-        return self.x + self.width/2, \
-               self.y + self.height/2
+        return self.center_x + self.width/2, \
+               self.center_y + self.height/2
 
 
 
